@@ -1,0 +1,23 @@
+.movie-card {
+    background-color: black;
+    margin: 20px;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+}
+
+h3 {
+    display: inline-block;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
