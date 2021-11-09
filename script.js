@@ -96,6 +96,8 @@ async function infoCard (pic) {
     ended.innerText = dataInfo[`ended`]
     rating.innerText = dataInfo[`rating`].average
     imdb.href = baseIMDBlink + dataInfo[`externals`].imdb
+    imdb.innerText = "imdb link"
+    imdb.target = `blank`
 
     
 
