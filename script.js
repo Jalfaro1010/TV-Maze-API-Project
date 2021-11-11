@@ -1,17 +1,29 @@
 const contain = document.querySelector(`.container`);
 const body = document.querySelector(`body`)
 
+// NETWORKS
+const ABC = []
+const NBC = []
+const FOX = []
+const CBS = []
+
+// Streaming
+const NETFLIX = []
+const PRIME = []
+const HULU = []
+const YOUTUBE = []
+
 const baseURL = `https://api.tvmaze.com/`;
 const search = `search/shows?q=`;
 const idsearch = `shows/`
 const form = document.querySelector(`form`)
 
+catogrizeShows()
 // Show Search
 form.addEventListener(`submit` , () => {
     event.preventDefault();
     const show = form.elements.movie.value
     getShow(show)
-    // cardClick()
 
 })
 async function getShow(val) {
@@ -96,8 +108,6 @@ async function infoCard (pic) {
     ended.innerText = dataInfo[`ended`]
     rating.innerText = dataInfo[`rating`].average
     imdb.href = baseIMDBlink + dataInfo[`externals`].imdb
-    imdb.innerText = "imdb link"
-    imdb.target = `blank`
 
     
 
@@ -124,3 +134,60 @@ async function infoCard (pic) {
         console.log(err)
     }
 }
+
+// Takes all the shows and put in there ID in the catogrey list that they fit
+
+
+
+async function catogrizeShows() {
+    try {
+        const showPageSearchBase = `https://api.tvmaze.com/shows?page=`
+        
+        let count = `0`
+        while (count < 235) {
+        count++ 
+        const Info = await axios.get(showPageSearchBase + count)
+        const Intel = Info.data
+
+        
+        for (show in Intel) {
+            // Putting shows in network list
+            if (Intel[show].network != null) {
+                if (Intel[show].network[`name`] == `ABC`) {
+                    ABC.push(Intel[show].id)
+                }
+                else if (Intel[show].network[`name`] == `NBC`) {
+                    NBC.push(Intel[show].id)
+                }
+                else if (Intel[show].network[`name`] == `FOX`) {
+                    FOX.push(Intel[show].id)
+                }
+                else if (Intel[show].network[`name`] == `CBS`) {
+                    CBS.push(Intel[show].id)
+                }
+            }
+            // Putting shows streaming list
+            if (Intel[show].webChannel != null) {
+                if (Intel[show].webChannel[`name`] == `Netflix`) {
+                    NETFLIX.push(Intel[show].id)
+                }
+                else if (Intel[show].webChannel[`name`] == `Prime`) {
+                    PRIME.push(Intel[show].id)
+                }
+                else if (Intel[show].webChannel[`name`] == `Hulu`) {
+                    HULU.push(Intel[show].id)
+                }
+                else if (Intel[show].webChannel[`name`] == `YouTube`) {
+                    YOUTUBE.push(Intel[show].id)
+                }
+            }
+        }
+    }
+    console.log(YOUTUBE)
+}
+    catch (err) {
+        console.log(err)
+    }
+}
+const date = new Date()
+console.log(date.getHours())
