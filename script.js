@@ -13,6 +13,33 @@ const PRIME = {}
 const HULU = {}
 const YOUTUBE = {}
 
+// Generes
+const Action = {}
+const Adventure = {}
+const Anime = {}
+const Children = {}
+const Comedy = {}
+const Crime = {}
+const Drama = {}
+const Family = {}
+const Fantasy = {}
+const Food  = {}
+const history = {}
+const Horror = {}
+const Medical = {}
+const Music = {}
+const Mystery = {}
+const Nature = {}
+const Romance = {}
+const ScienceFiction = {}
+const Sports = {}
+const Thriller = {}
+const Travel = {}
+const War = {}
+
+
+
+
 const baseURL = `https://api.tvmaze.com/`;
 const search = `search/shows?q=`;
 const idsearch = `shows/`
@@ -187,21 +214,67 @@ async function catogrizeShows() {
                     YOUTUBE[Intel[show].id] = Intel[show].rating[`average`]
                 }
             }
+            // Geres
+            if ((Intel[show].genres).includes(`Action`)) {
+                Action[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Adventure`)) {
+                Adventure[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Anime`)) {
+                Anime[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Children`)) {
+                Children[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Comedy`)) {
+                Comedy[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Crime`)) {
+                Crime[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Drama`)) {
+                Drama[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Family`)) {
+                Family[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`War`)) {
+                War[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Nature`)) {
+                Nature[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Romance`)) {
+                Romance[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`ScienceFiction`)) {
+                ScienceFiction[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Sports`)) {
+                Sports[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Thriller`)) {
+                Thriller[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Travel`)) {
+                Travel[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Horror`)) {
+                Horror[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Medical`)) {
+                Medical[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Music`)) {
+                Music[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            if ((Intel[show].genres).includes(`Mystery`)) {
+                Mystery[Intel[show].id] = Intel[show].rating[`average`]
+            }
+            
         }
     }
-    sortedABC = sortObjectEntries(ABC)
-    sortedNBC = sortObjectEntries(NBC)
-    sortedFOX = sortObjectEntries(FOX)
-    sortedCBS = sortObjectEntries(CBS)
-    sortedNetflix = sortObjectEntries(NETFLIX)
-    sortedPrime = sortObjectEntries(PRIME)
-    sortedHulu = sortObjectEntries(HULU)
-    sortedYouTube = sortObjectEntries(YOUTUBE)
-
-    console.log(sortedABC)
-    
-
-
 }
     catch (err) {
         console.log(err)
@@ -209,3 +282,12 @@ async function catogrizeShows() {
 }
 
 
+// Finding shows that have/will air soon
+
+const date = new Date();
+const year = date.getFullYear() * 12;
+const month = date.getMonth() * 30.437;
+const dayOfMonth = date.getDate();
+const numberOfDays = month + year + dayOfMonth
+
+console.log(numberOfDays)
