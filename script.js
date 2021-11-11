@@ -2,16 +2,16 @@ const contain = document.querySelector(`.container`);
 const body = document.querySelector(`body`)
 
 // NETWORKS
-const ABC = []
-const NBC = []
-const FOX = []
-const CBS = []
+const ABC = {}
+const NBC = {}
+const FOX = {}
+const CBS = {}
 
 // Streaming
-const NETFLIX = []
-const PRIME = []
-const HULU = []
-const YOUTUBE = []
+const NETFLIX = {}
+const PRIME = {}
+const HULU = {}
+const YOUTUBE = {}
 
 const baseURL = `https://api.tvmaze.com/`;
 const search = `search/shows?q=`;
@@ -26,6 +26,14 @@ form.addEventListener(`submit` , () => {
     getShow(show)
 
 })
+
+// Function for sorting shows by rating
+function sortObjectEntries(obj){
+    Object.entries(obj).sort((a,b) => b[1]-a[1])
+    return  Object.entries(obj).sort((a,b)=>b[1]-a[1]).map(el=>el[0])
+}
+
+// Function for getting show for search
 async function getShow(val) {
     try {
     searchURL = baseURL + search + val
@@ -137,8 +145,6 @@ async function infoCard (pic) {
 
 // Takes all the shows and put in there ID in the catogrey list that they fit
 
-
-
 async function catogrizeShows() {
     try {
         const showPageSearchBase = `https://api.tvmaze.com/shows?page=`
@@ -154,38 +160,52 @@ async function catogrizeShows() {
             // Putting shows in network list
             if (Intel[show].network != null) {
                 if (Intel[show].network[`name`] == `ABC`) {
-                    ABC.push(Intel[show].id)
+                    ABC[Intel[show].id] = Intel[show].rating[`average`]
                 }
                 else if (Intel[show].network[`name`] == `NBC`) {
-                    NBC.push(Intel[show].id)
+                    NBC[Intel[show].id] = Intel[show].rating[`average`]
                 }
                 else if (Intel[show].network[`name`] == `FOX`) {
-                    FOX.push(Intel[show].id)
+                    FOX[Intel[show].id] = Intel[show].rating[`average`]
                 }
                 else if (Intel[show].network[`name`] == `CBS`) {
-                    CBS.push(Intel[show].id)
+                    CBS[Intel[show].id] = Intel[show].rating[`average`]
                 }
             }
             // Putting shows streaming list
             if (Intel[show].webChannel != null) {
                 if (Intel[show].webChannel[`name`] == `Netflix`) {
-                    NETFLIX.push(Intel[show].id)
+                    NETFLIX[Intel[show].id] = Intel[show].rating[`average`]
                 }
                 else if (Intel[show].webChannel[`name`] == `Prime`) {
-                    PRIME.push(Intel[show].id)
+                    PRIME[Intel[show].id] = Intel[show].rating[`average`]
                 }
                 else if (Intel[show].webChannel[`name`] == `Hulu`) {
-                    HULU.push(Intel[show].id)
+                    HULU[Intel[show].id] = Intel[show].rating[`average`]
                 }
                 else if (Intel[show].webChannel[`name`] == `YouTube`) {
-                    YOUTUBE.push(Intel[show].id)
+                    YOUTUBE[Intel[show].id] = Intel[show].rating[`average`]
                 }
             }
         }
     }
-    console.log(YOUTUBE)
+    sortedABC = sortObjectEntries(ABC)
+    sortedNBC = sortObjectEntries(NBC)
+    sortedFOX = sortObjectEntries(FOX)
+    sortedCBS = sortObjectEntries(CBS)
+    sortedNetflix = sortObjectEntries(NETFLIX)
+    sortedPrime = sortObjectEntries(PRIME)
+    sortedHulu = sortObjectEntries(HULU)
+    sortedYouTube = sortObjectEntries(YOUTUBE)
+
+    console.log(sortedABC)
+    
+
+
 }
     catch (err) {
         console.log(err)
     }
 }
+
+
