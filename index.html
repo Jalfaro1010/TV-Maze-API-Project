@@ -9,12 +9,140 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
-        <h1>Search for a Show</h1>
-        <input type="text" name="movie">
-        <br>
-        <input type="submit">
-    </form>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TV Maze Group Project">
+    <title>Group Project</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">TV</span> Maze</h1>
+            </div>
+            <!-- Search Bar -->
+            <div id="search" class="small-12 medium-6 large-7 columns small-order-2 medium-order-1 hide-for-print">
+                <form class="" method="get" action="/search">
+                    <div class="row collapse">
+                        <div class="small-8 columns">
+                            <input type="text" id="searchform-q" name="q" placeholder="Search Shows and People">
+                        </div>
+                        <div class="small-4 columns">
+                            <button type="submit" class="medium button postfix" alt="Search">
+                                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Home/Login/Register -->
+            <nav>
+                <ul>
+                    <li id="current">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="about">Login</a>
+                    </li>
+                    <li>
+                        <a href="services">Register</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Showcase -->
+    <section id="showcase">
+        <div class="container">
+            <!-- Table of Contents -->
+            <h1>Table of Contents</h1>
+            <h4>Networks</h4>
+            <div>
+                <ul>
+                    <!-- Clicking on these should automatically jump to the selected links below ( Possibly removing later)-->
+                    <li>
+                        <a href="#nbc">NBC</a>
+                    </li>
+                    <li>
+                        <a href="#cbs">CBS</a>
+                    </li>
+                    <li>
+                        <a href="#abc">ABC</a>
+                    </li>
+                    <li>
+                        <a href="#fox">FOX</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Endpoints</h3>
+        <div class="endpoint">
+            <h3>NBC</h3>
+            <!-- Links to the actual website -->
+            <p>Shows aired on NBC.</p><a href="https://www.nbc.com/shows/all/popular">NBC Shows</a>
+        </div>
+        <div>
+            <!-- API Link goes below -->
+            <a href=""></a>
+        </div>
+        <div class="endpoint">
+            <h3>CBS</h3>
+            <!-- Links to the actual website -->
+            <p>Shows aired on CBS.</p><a href="https://www.cbs.com/shows/">CBS Shows</a>
+        </div>
+        <div>
+            <!-- API Link goes below -->
+            <a href=""></a>
+        </div>
+        <div class="endpoint">
+            <h3>ABC</h3>
+            <!-- Links to the actual website -->
+            <p>Shows aired on ABC.</p><a href="https://abc.com/browse">ABC Shows</a>
+        </div>
+        <div>
+            <!-- API Link goes below -->
+            <a href=""></a>
+        </div>
+        <div class="endpoint">
+            <h3>FOX</h3>
+            <!-- Links to the actual website -->
+            <p>Shows aired on FOX.</p><a href="https://www.fox.com/">Fox Shows</a>
+        </div>
+        <div>
+            <!-- API Link goes below -->
+            <a href=""></a>
+        </div>
+    </section>
+
+     <!-- Start of Footer -->
+     <div class="container">
+        <footer class="footer">
+          <!-- The Links for navigation to each section of the webapge -->
+            <ul>
+            <li class="nav-item" id="nbc"><a href="#" class="nav-link px-2 text-muted">NBC</a></li>
+            <li class="nav-item" id="cbs"><a href="#" class="nav-link px-2 text-muted">CBS</a></li>
+            <li class="nav-item" id="abc"><a href="#" class="nav-link px-2 text-muted">ABC</a></li>
+            <li class="nav-item" id="fox"><a href="#" class="nav-link px-2 text-muted">FOX</a></li>
+           </ul>
+           <!-- Copyright Section -->
+          <p id="copyright">&copy; 2021 Company, Inc</p>
+        </footer>
+      </div>
+</footer>
+</body>
+
+
+</html>
 
     <div class="container"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

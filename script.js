@@ -1,4 +1,6 @@
-const contain = document.querySelector(`.container`);
+const searchHolder = document.createElement(`div`);
+searchHolder.classList.add(`searchHolder`)
+const container = document.querySelector(`.container`)
 const body = document.querySelector(`body`)
 
 // NETWORKS
@@ -43,14 +45,18 @@ const War = {}
 const baseURL = `https://api.tvmaze.com/`;
 const search = `search/shows?q=`;
 const idsearch = `shows/`
-const form = document.querySelector(`form`)
+const personSearch = `search/people?q=`
+const Search = document.querySelector(`#searchform-q`)
+const searchButton = document.querySelector(`button`)
 
-catogrizeShows()
+
 // Show Search
-form.addEventListener(`submit` , () => {
+searchButton.addEventListener(`click` , () => {
     event.preventDefault();
-    const show = form.elements.movie.value
-    getShow(show)
+    const input = Search.value
+    getShow(input)
+    getPerson(input)
+    container.append(searchHolder)
 
 })
 
@@ -63,10 +69,10 @@ function sortObjectEntries(obj){
 // Function for getting show for search
 async function getShow(val) {
     try {
-    searchURL = baseURL + search + val
-    let response = await axios.get(searchURL)
-    Data = response.data
-    contain.innerHTML = ""
+    searchURL = baseURL + search + val;
+    let response = await axios.get(searchURL);
+    Data = response.data;
+    searchHolder.innerHTML = "";
 
     for (set in Data) {
         
@@ -84,15 +90,52 @@ async function getShow(val) {
 
         div.classList.add(`movie-card`)
         img.id = (Data[set].show[`id`])
-        console.log(img.id)
 
         div.append(img)
         div.append(h3)
-        contain.append(div)
-        div.addEventListener(`click`, () => {
-            console.log(`clicked it`);
-            infoCard(img)
-        })
+        searchHolder.append(div)
+        // div.addEventListener(`click`, () => {
+        //     infoCard(img)
+        // })
+
+        }
+    }
+    }
+
+    catch (err){
+        console.log(err)
+    }
+}
+async function getPerson(val) {
+    try {
+    searchURL = baseURL + personSearch + val
+    let response = await axios.get(searchURL)
+    Data = response.data
+    // contain.innerHTML = ""
+
+    for (set in Data) {
+        
+        if (Data[set].person[`image`] == null) {
+            continue;
+        }
+        else {
+
+        const h3 = document.createElement(`h3`)
+        const div = document.createElement(`div`)
+        const img = document.createElement(`img`)
+
+        img.src = Data[set].person[`image`].medium
+        h3.innerText = Data[set].person[`name`]
+
+        div.classList.add(`Person-card`)
+        img.id = (Data[set].person[`id`])
+
+        div.append(img)
+        div.append(h3)
+        searchHolder.append(div)
+        // div.addEventListener(`click`, () => {
+        //     infoCard(img)
+        // })
 
         }
     }
@@ -105,10 +148,11 @@ async function getShow(val) {
 
 const cardHolder = document.createElement(`div`)
 // info card function
-async function infoCard (pic) {
+async function infoCard(pic) {
     try {
     const baseIMDBlink = `https://www.imdb.com/title/`
     const imgID = pic.id
+
     const info =  await axios.get(baseURL + idsearch + imgID)
     const dataInfo = info.data
 
@@ -280,14 +324,3 @@ async function catogrizeShows() {
         console.log(err)
     }
 }
-
-
-// Finding shows that have/will air soon
-
-const date = new Date();
-const year = date.getFullYear() * 12;
-const month = date.getMonth() * 30.437;
-const dayOfMonth = date.getDate();
-const numberOfDays = month + year + dayOfMonth
-
-console.log(numberOfDays)
