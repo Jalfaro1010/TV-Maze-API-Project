@@ -1,23 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TvMaze</title>
-    <meta name="description" content="Tv Maze">
+    <meta name="description" content="TV Maze Group Project">
     <link rel="stylesheet" href="style.css">
+    <title>Group Project</title>
 </head>
-<body>
-    <form>
-        <h1>Search for a Show</h1>
-        <input type="text" name="movie">
-        <br>
-        <input type="submit">
-    </form>
 
-    <div class="container"></div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">TV</span> Maze</h1>
+            </div>
+            <!-- Search Bar -->
+            <div id="search" class="small-12 medium-6 large-7 columns small-order-2 medium-order-1 hide-for-print">
+                <form class="" method="get" action="/search">
+                    <div class="row collapse">
+                        <div class="small-8 columns">
+                            <input type="text" id="searchform-q" name="q" placeholder="Search Shows and People">
+                        </div>
+                        <div class="small-4 columns">
+                            <button type="submit" class="medium button postfix" alt="Search">
+                                <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- Home/Login/Register -->
+            <!-- <nav>
+                <ul>
+                    <li id="current">
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="about">Login</a>
+                    </li>
+                    <li>
+                        <a href="services">Register</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header> -->
+
+    <nav class="navbar">
+        <!-- LOGO -->
+        <div class="logo"></div>
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+          <!-- USING CHECKBOX HACK -->
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <!-- NAVIGATION MENUS -->
+          <div class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/">About</a></li>
+            <li class="services">
+              <a href="/">Services</a>
+              <!-- DROPDOWN MENU -->
+              <!--<ul class="dropdown">
+                <li><a href="/">Dropdown 1 </a></li>
+                <li><a href="/">Dropdown 2</a></li>
+                <li><a href="/">Dropdown 2</a></li>
+                <li><a href="/">Dropdown 3</a></li>
+                <li><a href="/">Dropdown 4</a></li>
+              </ul> 
+            </li> -->
+            
+          </div>
+        </ul>
+      </nav>
+<section>
+      <div class="row">
+        <div class="column1">
+          <img src="nbc.png" alt="NBC" style="width:100%">
+          <h3 class="first-txt"><a href="https://www.nbc.com/shows/all/popular">NBC Shows</a>
+           
+        </h3>
+        </div>
+        <div class="column1">
+          <img src="CBS-Logo-768x432.png" alt="CBS" style="width:100%">
+          <h3 class="first-txt"><a href="https://www.cbs.com/shows/">CBS Shows</a>
+            
+        </h3>
+        </div>
+        <div class="column1">
+          <img src="Abc_2013_logo_blue.svg.png" alt="ABC" style="width:70%">
+          <h3 class="first-txt"><a href="https://abc.com/browse">ABC Shows</a>
+            </h3>
+        
+        </div>
+        <div class="column1">
+            <img src="FOX_wordmark.svg" alt="FOX" style="width:95%">
+            <h3 class="first-txt"><a href="https://www.fox.com/">Fox Shows</a>
+                
+            </h3>
+      </div>
+    </section>
+
+
+
+
+    <!-- Showcase -->
+    <section id="showcase">
+        <div class="container">
+            <!-- Table of Contents -->
+          <!---- <h1>Table of Contents</h1> -->
+            <h4>Networks</h4>
+            <div> 
+              <!---  <ul> -->
+                    <!-- Clicking on these should automatically jump to the selected links below ( Possibly removing later)-->
+                    <!--<li>
+                        <a href="#nbc">NBC</a>
+                    </li>
+                    <li>
+                        <a href="#cbs">CBS</a>
+                    </li>
+                    <li>
+                        <a href="#abc">ABC</a>
+                    </li>
+                    <li>
+                        <a href="#fox">FOX</a>
+                    </li>
+                </ul> -->
+            </div>
+        </div> 
+        
+       <!---- <h3>Endpoints</h3> -->
+<section>
+     
+
+        <div class="row">
+            <div class="column1">
+              <img src="bigbrother.jpeg" alt="NBC" style="width:100%">
+              <h3 class="first-msg">
+                Big Brother
+            </h3>
+            </div>
+            <div class="column1">
+              <img src="ncis_social_1200x627_11.jpeg" alt="CBS" style="width:100%">
+              <h3 class="first-txt">
+                NCIS
+            </h3>
+            </div>
+            <div class="column1">
+              <img src="neighborhood.jpeg" alt="neighborhood" style="width:50%">
+              <h3>Neighborhood</h3>
+            
+            </div>
+
+    </section>
+
+
+    <section>
+     
+
+        <div class="row">
+            <div class="column1">
+              <img src="Lawandorder01.jpeg" alt="Lawandorder" style="width:100%">
+              <h3 class="first-msg">
+                Big Brother
+            </h3>
+            </div>
+            <div class="column1">
+              <img src="the voice.jpeg" alt="thevoice" style="width:100%">
+              <h3 class="first-txt">
+                NCIS
+            </h3>
+            </div>
+            <div class="column1">
+              <img src="snl.jpeg" alt="snl" style="width:100%">
+              <h3>Neighborhood</h3>
+            
+            </div>
+
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="column1">
+          <img src="bachelor.jpeg" alt="bachelor" style="width:100%">
+          <h3 class="first-msg">
+            The Bachelor
+        </h3>
+        </div>
+        <div class="column1">
+          <img src="greys.jpeg" alt="greys anatomy" style="width:100%">
+          <h3 class="first-txt">
+            Greys Anatomy
+        </h3>
+        </div>
+        <div class="column1">
+          <img src="blackish.jpeg" alt="blackish" style="width:100%">
+          <h3>Blackish</h3>
+        
+        </div>
+       
+      </div>
+    </section>
+
+    <section>
+        <div class="row">
+          <div class="column1">
+            <img src="themaskedsinger.png" alt="the masked singer" style="width:100%">
+            <h3 class="first-msg">
+             The Masked Singer
+          </h3>
+          </div>
+          <div class="column1">
+            <img src="911.jpeg" alt="911" style="width:100%">
+            <h3 class="first-txt">
+                911
+          </h3>
+          </div>
+          <div class="column1">
+            <img src="simpsons.jpeg" alt="simpsons" style="width:100%">
+            <h3>Simpsons</h3>
+          
+          </div>
+         
+        </div>
+      </section>
+
+
+        <!-- <div class="endpoint"> -->
+           <!--- <h3>NBC</h3>
+             Links to the actual website -->
+           <!--- <p>Shows aired on NBC.</p><a href="https://www.nbc.com/shows/all/popular">NBC Shows</a>
+        </div>
+        <div> -->
+            <!-- API Link goes below -->
+            <!-- <a href=""></a>
+        </div>
+        <div class="endpoint">
+            <h3>CBS</h3>
+            Links to the actual website -->
+           <!-- <p>Shows aired on CBS.</p><a href="https://www.cbs.com/shows/">CBS Shows</a>
+        </div>
+        <div>
+            API Link goes below -->
+           <!-- <a href=""></a>
+        </div>
+        <div class="endpoint">
+            <h3>ABC</h3>
+            Links to the actual website -->
+           <!-- <p>Shows aired on ABC.</p><a href="https://abc.com/browse">ABC Shows</a>
+        </div>
+        <div>
+            API Link goes below -->
+         <!--  <a href=""></a>
+        </div>
+        <div class="endpoint">
+            <h3>FOX</h3>
+           Links to the actual website -->
+           <!-- <p>Shows aired on FOX.</p><a href="https://www.fox.com/">Fox Shows</a>
+        </div>
+        <div> -->
+            <!-- API Link goes below -->
+            <a href=""></a>
+        </div>
+    </section>
 </body>
+
 </html>
