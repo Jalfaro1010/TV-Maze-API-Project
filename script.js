@@ -1,7 +1,9 @@
 const searchHolder = document.createElement(`div`);
 searchHolder.classList.add(`searchHolder`)
-const container = document.querySelector(`.container`)
+const Nav = document.querySelector(`nav`)
 const body = document.querySelector(`body`)
+const page = document.querySelector(`#toggle-page`)
+const home = document.querySelector(`.Home`)
 
 // NETWORKS
 const ABC = {}
@@ -56,8 +58,13 @@ searchButton.addEventListener(`click` , () => {
     const input = Search.value
     getShow(input)
     getPerson(input)
-    container.append(searchHolder)
+    Nav.after(searchHolder)
+    page.classList.add(`toggle`)
+})
 
+home.addEventListener(`click`, () => {
+    page.classList.remove(`toggle`)
+    searchHolder.innerHTML = ""
 })
 
 // Function for sorting shows by rating

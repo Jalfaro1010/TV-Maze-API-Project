@@ -225,10 +225,10 @@ input[type=checkbox]{
     text-align: center;
 }
 
-h3 {
+/* h3 {
     display: inline-block;
     color: white;
-}
+} */
 
 img {
     display: block;
@@ -247,7 +247,7 @@ img {
     color: purple;
 }
 
-#hideReults {
+.toggle {
     display: none;
 }
 
