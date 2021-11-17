@@ -216,3 +216,45 @@ input[type=checkbox]{
     border-bottom: solid black;
 }
 
+/* Bens styles */
+.movie-card {
+    background-color: black;
+    margin: 20px;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+}
+
+/* h3 {
+    display: inline-block;
+    color: white;
+} */
+
+img {
+    display: block;
+    margin: auto;
+}
+.searchHolder {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.Info-Card {
+    width: 500px;
+    height: 500px;
+    background-color: blue;
+    color: purple;
+}
+
+.toggle {
+    display: none;
+}
+
+.Person-card {
+    background-color: black;
+    margin: 20px;
+    display: inline-block;
+    padding: 5px;
+    text-align: center;
+}
