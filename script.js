@@ -134,8 +134,9 @@ async function getPerson(val) {
         img.src = Data[set].person[`image`].medium
         h3.innerText = Data[set].person[`name`]
 
-        div.classList.add(`Person-card`)
+        div.classList.add(`.Person-card`)
         img.id = (Data[set].person[`id`])
+        h3.classList.add(`.titles`)
 
         div.append(img)
         div.append(h3)
